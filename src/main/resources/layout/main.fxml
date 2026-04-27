@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.enspd.campusconnect.controller.MainController"
+            prefHeight="720.0" prefWidth="1080.0">
+
+    <left>
+        <VBox styleClass="sidebar" spacing="10" prefWidth="200">
+            <children>
+                <VBox alignment="CENTER" spacing="5">
+                    <padding>
+                        <Insets bottom="30" top="10"/>
+                    </padding>
+                    <Text text="CampusConnect" style="-fx-fill: white; -fx-font-size: 20; -fx-font-weight: bold;"/>
+                    <Text text="ENSPD" style="-fx-fill: #bdc3c7; -fx-font-size: 12;"/>
+                </VBox>
+                
+                <Button text="Dashboard" styleClass="sidebar-button, sidebar-button-active" 
+                        onAction="#showDashboard" maxWidth="Infinity"/>
+                <Button text="Étudiants" styleClass="sidebar-button" 
+                        onAction="#showStudents" maxWidth="Infinity"/>
+                <Button text="Enseignants" styleClass="sidebar-button" 
+                        onAction="#showTeachers" maxWidth="Infinity"/>
+                <Button text="Cours" styleClass="sidebar-button" 
+                        onAction="#showCourses" maxWidth="Infinity"/>
+                <Button text="Groupes" styleClass="sidebar-button" 
+                        onAction="#showGroups" maxWidth="Infinity"/>
+                <Button text="Note &amp; Résultats" styleClass="sidebar-button" 
+                        onAction="#showGrades" maxWidth="Infinity"/>
+                <Button text="Inscriptions" styleClass="sidebar-button" 
+                        onAction="#showEnrollments" maxWidth="Infinity"/>
+                <Button text="Salles" styleClass="sidebar-button" 
+                        onAction="#showRooms" maxWidth="Infinity"/>
+                <Button text="Emploi du temps" styleClass="sidebar-button" 
+                        onAction="#showSchedule" maxWidth="Infinity"/>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox>
+            <HBox styleClass="header" alignment="CENTER_LEFT">
+                <Text fx:id="pageTitle" text="Dashboard Overview" styleClass="header-title"/>
+            </HBox>
+            
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" styleClass="content-pane"/>
+        </VBox>
+    </center>
+
+</BorderPane>

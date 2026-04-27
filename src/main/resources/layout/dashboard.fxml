@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.enspd.campusconnect.controller.DashboardController"
+            fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+    
+    <VBox spacing="30" style="-fx-padding: 30; -fx-background-color: #080808;">
+        
+        <!-- KPI Cards Section -->
+        <HBox spacing="20">
+            <VBox styleClass="card, stat-card" HBox.hgrow="ALWAYS">
+                <Label fx:id="studentCount" text="0" styleClass="stat-value"/>
+                <Label text="ÉTUDIANTS" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="card, stat-card" HBox.hgrow="ALWAYS">
+                <Label fx:id="teacherCount" text="0" styleClass="stat-value"/>
+                <Label text="ENSEIGNANTS" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="card, stat-card" HBox.hgrow="ALWAYS">
+                <Label fx:id="courseCount" text="0" styleClass="stat-value"/>
+                <Label text="COURS" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="card, stat-card" HBox.hgrow="ALWAYS">
+                <Label fx:id="groupCount" text="0" styleClass="stat-value"/>
+                <Label text="GROUPES" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="card, stat-card" HBox.hgrow="ALWAYS">
+                <Label fx:id="roomCount" text="0" styleClass="stat-value"/>
+                <Label text="SALLES" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+
+        <!-- Charts Section -->
+        <GridPane hgap="25" vgap="25">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="40"/>
+                <ColumnConstraints percentWidth="60"/>
+            </columnConstraints>
+            
+            <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label text="Taux d'inscription" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <PieChart fx:id="enrollmentChart" prefHeight="300" legendVisible="true" labelsVisible="false"/>
+            </VBox>
+            
+            <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label text="Moyennes générales (Evolution)" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <LineChart fx:id="gradesChart" prefHeight="300">
+                    <xAxis><CategoryAxis side="BOTTOM" /></xAxis>
+                    <yAxis><NumberAxis side="LEFT" upperBound="20" lowerBound="0" autoRanging="false"/></yAxis>
+                </LineChart>
+            </VBox>
+            
+            <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                <Label text="Taux de réussite par Département" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <BarChart fx:id="successChart" prefHeight="300">
+                    <xAxis><CategoryAxis side="BOTTOM" /></xAxis>
+                    <yAxis><NumberAxis side="LEFT" upperBound="100"/></yAxis>
+                </BarChart>
+            </VBox>
+        </GridPane>
+
+        <!-- Information & Alerts Section -->
+        <HBox spacing="25">
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="15">
+                <Label text="Activité Récente" style="-fx-text-fill: #C6F065; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <VBox fx:id="activityList" spacing="10"/>
+            </VBox>
+            
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="15">
+                <Label text="Alertes &amp; Notifications" style="-fx-text-fill: #ff5555; -fx-font-size: 16; -fx-font-weight: bold;"/>
+                <VBox fx:id="alertsList" spacing="10"/>
+            </VBox>
+        </HBox>
+
+    </VBox>
+</ScrollPane>

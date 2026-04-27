@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.StudentFormController"
+      spacing="15" prefWidth="400" alignment="CENTER"
+      style="-fx-background-color: #1A1C1E; -fx-padding: 30;">
+
+    <Text text="Nouvel Étudiant" style="-fx-fill: white; -fx-font-size: 24; -fx-font-weight: bold;"/>
+    
+    <GridPane vgap="10" hgap="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        
+        <Label text="Nom:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="0"/>
+        <TextField fx:id="nomField" promptText="Entrez le nom" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Prénom:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="1"/>
+        <TextField fx:id="prenomField" promptText="Entrez le prénom" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="Email:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="2"/>
+        <TextField fx:id="emailField" promptText="Email institutionnel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Matricule:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="3"/>
+        <TextField fx:id="matriculeField" promptText="Format: 21X000" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        
+        <Label text="Date Naissance:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="4"/>
+        <DatePicker fx:id="dateNaissanceField" maxWidth="Infinity" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        
+        <Label text="Département:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="5"/>
+        <ComboBox fx:id="deptCombo" maxWidth="Infinity" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        
+        <Label text="Année:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="6"/>
+        <ComboBox fx:id="anneeCombo" maxWidth="Infinity" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Enregistrer" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>

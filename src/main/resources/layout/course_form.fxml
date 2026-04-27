@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.CourseFormController"
+      spacing="15" prefWidth="450" alignment="CENTER"
+      style="-fx-background-color: #1A1C1E; -fx-padding: 30;">
+
+    <Text text="Nouveau Cours" style="-fx-fill: white; -fx-font-size: 24; -fx-font-weight: bold;"/>
+    
+    <GridPane vgap="10" hgap="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        
+        <Label text="Code:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="0"/>
+        <TextField fx:id="codeField" promptText="Ex: INF201" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Intitulé:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="1"/>
+        <TextField fx:id="intituleField" promptText="Nom du cours" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="Volume Horaire:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="2"/>
+        <Spinner fx:id="vhSpinner" editable="true" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Enseignant resp.:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="teacherCombo" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Enregistrer" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>

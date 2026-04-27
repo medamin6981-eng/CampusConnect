@@ -1,9 +1,7 @@
 package com.enspd.campusconnect.repository;
 
 import com.enspd.campusconnect.model.Cours;
-import com.enspd.campusconnect.model.Enseignant;
 import com.enspd.campusconnect.model.Groupe;
-import com.enspd.campusconnect.model.Salle;
 import com.enspd.campusconnect.util.DatabaseManager;
 
 import java.sql.*;
@@ -17,9 +15,9 @@ public class GroupeRepository implements Repository<Groupe, String> {
     private final EnseignantRepository enseignantRepository;
     private final SalleRepository salleRepository;
 
-    public GroupeRepository(CoursRepository coursRepository, 
-                            EnseignantRepository enseignantRepository, 
-                            SalleRepository salleRepository) {
+    public GroupeRepository(CoursRepository coursRepository,
+            EnseignantRepository enseignantRepository,
+            SalleRepository salleRepository) {
         this.coursRepository = coursRepository;
         this.enseignantRepository = enseignantRepository;
         this.salleRepository = salleRepository;
@@ -29,7 +27,7 @@ public class GroupeRepository implements Repository<Groupe, String> {
     public void save(Groupe groupe) {
         String sql = "INSERT INTO groupes (code, type, capacite_max, cours_code, enseignant_id, salle_code, nb_inscrits) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, groupe.getCode());
             pstmt.setString(2, groupe.getType().name());
             pstmt.setInt(3, groupe.getCapaciteMax());
@@ -47,7 +45,7 @@ public class GroupeRepository implements Repository<Groupe, String> {
     public void update(Groupe groupe) {
         String sql = "UPDATE groupes SET type = ?, capacite_max = ?, cours_code = ?, enseignant_id = ?, salle_code = ?, nb_inscrits = ? WHERE code = ?";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, groupe.getType().name());
             pstmt.setInt(2, groupe.getCapaciteMax());
             pstmt.setString(3, groupe.getCours().getCode());
@@ -65,7 +63,7 @@ public class GroupeRepository implements Repository<Groupe, String> {
     public void delete(String code) {
         String sql = "DELETE FROM groupes WHERE code = ?";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, code);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -77,7 +75,7 @@ public class GroupeRepository implements Repository<Groupe, String> {
     public Optional<Groupe> findById(String code) {
         String sql = "SELECT * FROM groupes WHERE code = ?";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, code);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -95,8 +93,8 @@ public class GroupeRepository implements Repository<Groupe, String> {
         List<Groupe> groupes = new ArrayList<>();
         String sql = "SELECT * FROM groupes";
         try (Connection conn = DatabaseManager.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 groupes.add(mapResultSetToGroupe(rs));
             }
@@ -109,31 +107,30 @@ public class GroupeRepository implements Repository<Groupe, String> {
     private Groupe mapResultSetToGroupe(ResultSet rs) throws SQLException {
         String coursCode = rs.getString("cours_code");
         Cours cours = coursRepository.findById(coursCode).orElse(null);
-        
+
         Groupe groupe = new Groupe(
                 rs.getString("code"),
                 Groupe.TypeGroupe.valueOf(rs.getString("type")),
                 rs.getInt("capacite_max"),
-                cours
-        );
-        
+                cours);
+
         String enseignantId = rs.getString("enseignant_id");
         if (enseignantId != null) {
             groupe.setEnseignant(enseignantRepository.findById(enseignantId).orElse(null));
         }
-        
+
         String salleCode = rs.getString("salle_code");
         if (salleCode != null) {
             groupe.setSalle(salleRepository.findById(salleCode).orElse(null));
         }
-        
+
         // nbInscrits is managed by the model, but we should sync it from DB if needed.
         // However, in this simple POO model, it's safer to set it.
         // But the model doesn't have a direct setter for nbInscrits.
         // It has incrementerInscrits/decrementerInscrits.
         // I'll skip setting it for now or add a reflective/package hack if I were real.
         // For now, I'll assume the model logic is primary.
-        
+
         return groupe;
     }
 }

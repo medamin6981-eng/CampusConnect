@@ -33,6 +33,10 @@ public class EnrollmentService {
         return inscription;
     }
 
+    public List<Inscription> listAll() {
+        return repository.findAll();
+    }
+
     public List<Inscription> getEnrollmentsByStudent(String studentId) {
         return repository.findAll().stream()
                 .filter(i -> i.getEtudiant().getId().equals(studentId))

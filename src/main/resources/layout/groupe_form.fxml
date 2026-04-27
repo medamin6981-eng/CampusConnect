@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.GroupeFormController"
+      spacing="15" prefWidth="450" alignment="CENTER"
+      style="-fx-background-color: #1A1C1E; -fx-padding: 30;">
+
+    <Text text="Créer un Groupe Académique" style="-fx-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+    
+    <GridPane vgap="12" hgap="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        
+        <Label text="Code Groupe:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="0"/>
+        <TextField fx:id="codeField" promptText="Ex: INFO-3-A" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Type:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="typeCombo" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Cours associé:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="courseCombo" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Enseignant:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="teacherCombo" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Salle:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="roomCombo" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        
+        <Label text="Capacité Max:" style="-fx-text-fill: #bdc3c7;" GridPane.rowIndex="4"/>
+        <Spinner fx:id="capacitySpinner" editable="true" maxWidth="Infinity" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="15" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+        <Button text="Annuler" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Enregistrer" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>

@@ -44,6 +44,10 @@ public class Seance {
     public LocalDateTime getFin()        { return fin; }
 
     // ── Setters ────────────────────────────────────────────────────────────
+    public void setCours(Cours cours)           { this.cours = cours; }
+    public void setGroupe(Groupe groupe)         { this.groupe = groupe; }
+    public void setEnseignant(Enseignant ens)   { this.enseignant = ens; }
+    public void setSalle(Salle salle)           { this.salle = salle; }
     public void setDebut(LocalDateTime debut) { this.debut = debut; }
     public void setFin(LocalDateTime fin)     { this.fin = fin; }
 

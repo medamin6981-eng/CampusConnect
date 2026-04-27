@@ -1,0 +1,226 @@
+/* Premium Lime & Dark Theme for CampusConnect */
+
+:root {
+    -primary-color: #0d0d0d;
+    -secondary-color: #151515;
+    -accent-color: #C6F065;
+    /* Lime Green from reference image */
+    -accent-hover: #b5e054;
+    -card-bg: #1a1a1a;
+    -border-color: #252525;
+    -text-light: #ffffff;
+    -text-subdued: #888888;
+    -bg-color: #080808;
+}
+
+.root {
+    -fx-font-family: 'Inter', 'Segoe UI', sans-serif;
+    -fx-background-color: #080808;
+    -fx-text-fill: white;
+    background-color: #080808;
+    color: white;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: #0d0d0d;
+    -fx-padding: 30 0 20 0;
+    -fx-border-color: transparent #252525 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    background-color: #0d0d0d;
+    padding: 30px 0 20px 0;
+    border-color: transparent #252525 transparent transparent;
+    border-width: 0 1px 0 0;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #888888;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 25 12 25;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-pref-width: 200;
+    background-color: transparent;
+    color: #888888;
+    padding: 12px 25px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sidebar-button:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #ffffff08;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.sidebar-button-active {
+    -fx-text-fill: #C6F065;
+    -fx-background-color: rgba(198, 240, 101, 0.1);
+    -fx-border-color: transparent transparent transparent #C6F065;
+    -fx-border-width: 0 0 0 3;
+    color: #C6F065;
+    background-color: rgba(198, 240, 101, 0.1);
+    border-color: transparent transparent transparent #C6F065;
+    border-width: 0 0 0 3px;
+}
+
+/* Content Area */
+.header {
+    -fx-background-color: #080808;
+    -fx-padding: 20 40 20 40;
+    -fx-border-color: transparent transparent #252525 transparent;
+    -fx-border-width: 0 0 1 0;
+    background-color: #080808;
+    padding: 20px 40px;
+    border-color: transparent transparent #252525 transparent;
+    border-width: 0 0 1px 0;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.content-pane {
+    -fx-padding: 30;
+    -fx-background-color: #080808;
+    padding: 30px;
+    background-color: #080808;
+}
+
+/* Cards */
+.card {
+    -fx-background-color: #151515;
+    -fx-background-radius: 15;
+    -fx-padding: 25;
+    -fx-border-color: #252525;
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    background-color: #151515;
+    border-radius: 15px;
+    padding: 25px;
+    border-color: #252525;
+    border-width: 1px;
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+}
+
+.stat-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888;
+    font-size: 12px;
+    color: #888888;
+    text-transform: uppercase;
+}
+
+/* Rounded Buttons */
+.btn-primary {
+    -fx-background-color: #C6F065;
+    -fx-text-fill: #0d0d0d;
+    -fx-padding: 10 25;
+    -fx-background-radius: 30;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    background-color: #C6F065;
+    color: #0d0d0d;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #b5e054;
+    background-color: #b5e054;
+}
+
+/* Tables */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #252525;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    background-color: transparent;
+    border-color: #252525;
+    border-radius: 15px;
+}
+
+.table-view .column-header,
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(198, 240, 101, 0.1);
+    background-color: rgba(198, 240, 101, 0.1);
+}
+
+/* Charts */
+.chart {
+    -fx-padding: 10;
+    padding: 10px;
+}
+
+.chart-content {
+    -fx-padding: 10;
+    padding: 10px;
+}
+
+.chart-bar {
+    -fx-bar-fill: #C6F065;
+}
+
+.chart-pie-label {
+    -fx-fill: white;
+    fill: white;
+}
+
+/* ScrollBar Styling */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #252525;
+    background-color: #252525;
+}
+
+/* Dashboard Specifics */
+.activity-item {
+    -fx-text-fill: #888888;
+    -fx-font-size: 13px;
+    color: #888888;
+}
+
+.alert-item {
+    -fx-text-fill: #ff8888;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    color: #ff8888;
+}
+
+.stat-card:hover {
+    -fx-border-color: #C6F065;
+    -fx-background-color: rgba(198, 240, 101, 0.05);
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: white;
+    color: white;
+}

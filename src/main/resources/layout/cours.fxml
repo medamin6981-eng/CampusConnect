@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.CourseController"
+      spacing="20" styleClass="content-pane">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un cours (Code ou Intitulé)..." prefWidth="350"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Nouveau Cours" styleClass="btn-primary" onAction="#handleAddCourse"/>
+    </HBox>
+
+    <TableView fx:id="courseTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCode" text="Code" prefWidth="100"/>
+            <TableColumn fx:id="colIntitule" text="Intitulé" prefWidth="300"/>
+            <TableColumn fx:id="colVH" text="Vol. Horaire" prefWidth="120"/>
+            <TableColumn fx:id="colResponsable" text="Responsable" prefWidth="250"/>
+        </columns>
+    </TableView>
+
+</VBox>

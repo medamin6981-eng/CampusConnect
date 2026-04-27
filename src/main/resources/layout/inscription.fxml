@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.EnrollmentController"
+      spacing="20" styleClass="content-pane">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher une inscription (Étudiant ou Groupe)..." prefWidth="350"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Nouvelle Inscription" styleClass="btn-primary" onAction="#handleNewEnrollment"/>
+    </HBox>
+
+    <TableView fx:id="enrollmentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="100"/>
+            <TableColumn fx:id="colStudent" text="Étudiant" prefWidth="250"/>
+            <TableColumn fx:id="colGroup" text="Groupe / Cours" prefWidth="250"/>
+            <TableColumn fx:id="colDate" text="Date Inscription" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+</VBox>

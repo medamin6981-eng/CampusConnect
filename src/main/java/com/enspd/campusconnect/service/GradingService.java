@@ -7,7 +7,6 @@ import com.enspd.campusconnect.repository.NoteRepository;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * Service for managing grades and transcripts.
@@ -20,11 +19,19 @@ public class GradingService {
         this.repository = repository;
     }
 
+    public List<Note> listAll() {
+        return repository.findAll();
+    }
+
+    public void addGrade(Note note) {
+        note.getInscription().ajouterNote(note);
+        repository.save(note);
+    }
+
     public void addGrade(Inscription enrollment, String label, double value, double coefficient) {
         String id = "NOTE-" + UUID.randomUUID().toString().substring(0, 5).toUpperCase();
         Note grade = new Note(id, enrollment, label, value, coefficient);
-        enrollment.ajouterNote(grade);
-        repository.save(grade);
+        addGrade(grade);
     }
 
     public void printTranscript(Etudiant student, List<Inscription> enrollments) {

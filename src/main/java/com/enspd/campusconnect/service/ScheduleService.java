@@ -5,7 +5,6 @@ import com.enspd.campusconnect.repository.SeanceRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service for managing schedules and conflict detection.
@@ -18,8 +17,13 @@ public class ScheduleService {
         this.repository = repository;
     }
 
+    public List<Seance> listAll() {
+        return repository.findAll();
+    }
+
     /**
      * Attempts to add a session after conflict verification.
+     * 
      * @return Message indicating success or conflict.
      */
     public String addSession(Seance session) {
@@ -57,7 +61,7 @@ public class ScheduleService {
             return;
         }
         sessions.stream()
-             .sorted((a, b) -> a.getDebut().compareTo(b.getDebut()))
-             .forEach(System.out::println);
+                .sorted((a, b) -> a.getDebut().compareTo(b.getDebut()))
+                .forEach(System.out::println);
     }
 }

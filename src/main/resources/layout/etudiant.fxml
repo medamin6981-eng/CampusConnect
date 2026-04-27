@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.StudentController"
+      spacing="20" styleClass="content-pane">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un étudiant..." prefWidth="300"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Ajouter un étudiant" styleClass="btn-primary" onAction="#handleAddStudent"/>
+    </HBox>
+
+    <TableView fx:id="studentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="100"/>
+            <TableColumn fx:id="colMatricule" text="Matricule" prefWidth="120"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="150"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="150"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+            <TableColumn fx:id="colDepartement" text="Département" prefWidth="150"/>
+            <TableColumn fx:id="colAnnee" text="Année" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.GradeController"
+      spacing="20" styleClass="content-pane">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher par étudiant ou cours..." prefWidth="350"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ Saisir Note" styleClass="btn-primary" onAction="#handleNewGrade"/>
+    </HBox>
+
+    <TableView fx:id="gradeTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colStudent" text="Étudiant" prefWidth="250"/>
+            <TableColumn fx:id="colCourse" text="Cours / Groupe" prefWidth="250"/>
+            <TableColumn fx:id="colLibelle" text="Libellé" prefWidth="150"/>
+            <TableColumn fx:id="colValue" text="Note / 20" prefWidth="100"/>
+            <TableColumn fx:id="colCoef" text="Coef" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>

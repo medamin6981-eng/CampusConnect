@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.enspd.campusconnect.controller.LoginController"
+      alignment="CENTER" spacing="25"
+      style="-fx-background-color: #080808;">
+
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+
+    <VBox alignment="CENTER" spacing="10">
+        <Text text="CampusConnect" style="-fx-fill: #C6F065; -fx-font-size: 32; -fx-font-weight: 800;"/>
+        <Text text="Administration Portal" style="-fx-fill: #888888; -fx-font-size: 14;"/>
+    </VBox>
+
+    <VBox spacing="15" maxWidth="350" styleClass="card" style="-fx-padding: 40; -fx-background-color: #151515;">
+        <VBox spacing="5">
+            <Label text="Identifiant" style="-fx-text-fill: #888888;"/>
+            <TextField fx:id="usernameField" promptText="admin" style="-fx-background-color: #0d0d0d; -fx-text-fill: white; -fx-padding: 12; -fx-background-radius: 8;"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Mot de passe" style="-fx-text-fill: #888888;"/>
+            <PasswordField fx:id="passwordField" promptText="••••••••" style="-fx-background-color: #0d0d0d; -fx-text-fill: white; -fx-padding: 12; -fx-background-radius: 8;"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" style="-fx-text-fill: #ff5555;" visible="false"/>
+
+        <Button text="Se connecter" onAction="#handleLogin" maxWidth="Infinity" styleClass="btn-primary" style="-fx-cursor: hand;"/>
+    </VBox>
+    
+    <Text text="© 2024 ENSPD - Academic Management System" style="-fx-fill: #333333; -fx-font-size: 10;"/>
+
+</VBox>
